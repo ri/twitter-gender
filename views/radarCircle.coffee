@@ -149,48 +149,46 @@ class circleChart
         @mtmData.push(followingM)
         @ftmIncomingData.push(followedByF)
         @mtmIncomingData.push(followedByM)
-      # console.log "#{d.username} is following #{men} men, #{women} women"
     )
-    console.log @mtmData
-    mData = @nodesData.filter((d) -> d.gender is "male") 
-    fData = @nodesData.filter((d) -> d.gender is "female" and not(d.index is 0))
+    # mData = @nodesData.filter((d) -> d.gender is "male") 
+    # fData = @nodesData.filter((d) -> d.gender is "female" and not(d.index is 0))
 
 
-    meanMTF = d3.mean(@mtfData, (d) -> d)
-    meanMTM = d3.mean(@mtmData, (d) -> d)
-    medianMTF = d3.median(@mtfData, (d) -> d)
-    medianMTM = d3.median(@mtmData, (d) -> d)
-    meanFTF = d3.mean(@ftfData, (d) -> d)
-    meanFTM = d3.mean(@ftmData, (d) -> d)
-    medianFTF = d3.median(@ftfData, (d) -> d)
-    medianFTM = d3.median(@ftmData, (d) -> d)
+    # meanMTF = d3.mean(@mtfData, (d) -> d)
+    # meanMTM = d3.mean(@mtmData, (d) -> d)
+    # medianMTF = d3.median(@mtfData, (d) -> d)
+    # medianMTM = d3.median(@mtmData, (d) -> d)
+    # meanFTF = d3.mean(@ftfData, (d) -> d)
+    # meanFTM = d3.mean(@ftmData, (d) -> d)
+    # medianFTF = d3.median(@ftfData, (d) -> d)
+    # medianFTM = d3.median(@ftmData, (d) -> d)
 
-    incomingMeanMTF = d3.mean(@mtfIncomingData, (d) -> d)
-    incomingMeanMTM = d3.mean(@mtmIncomingData, (d) -> d)
-    incomingMedianMTF = d3.median(@mtfIncomingData, (d) -> d)
-    incomingMedianMTM = d3.median(@mtmIncomingData, (d) -> d)
-    incomingMeanFTF = d3.mean(@ftfIncomingData, (d) -> d)
-    incomingMeanFTM = d3.mean(@ftmIncomingData, (d) -> d)
-    incomingMedianFTF = d3.median(@ftfIncomingData, (d) -> d)
-    incomingMedianFTM = d3.median(@ftmIncomingData, (d) -> d)
-    console.log "MEAN m to f", meanMTF
-    console.log "m to m", meanMTM
-    console.log "MEDIAN m to f", medianMTF
-    console.log "m to m", medianMTM
-    console.log "MEAN f to f", meanFTF
-    console.log "f to m", meanFTM
-    console.log "MEDIAN f to f", medianFTF
-    console.log "f to m", medianFTM
+    # incomingMeanMTF = d3.mean(@mtfIncomingData, (d) -> d)
+    # incomingMeanMTM = d3.mean(@mtmIncomingData, (d) -> d)
+    # incomingMedianMTF = d3.median(@mtfIncomingData, (d) -> d)
+    # incomingMedianMTM = d3.median(@mtmIncomingData, (d) -> d)
+    # incomingMeanFTF = d3.mean(@ftfIncomingData, (d) -> d)
+    # incomingMeanFTM = d3.mean(@ftmIncomingData, (d) -> d)
+    # incomingMedianFTF = d3.median(@ftfIncomingData, (d) -> d)
+    # incomingMedianFTM = d3.median(@ftmIncomingData, (d) -> d)
+    # console.log "MEAN m to f", meanMTF
+    # console.log "m to m", meanMTM
+    # console.log "MEDIAN m to f", medianMTF
+    # console.log "m to m", medianMTM
+    # console.log "MEAN f to f", meanFTF
+    # console.log "f to m", meanFTM
+    # console.log "MEDIAN f to f", medianFTF
+    # console.log "f to m", medianFTM
 
-    console.log "INCOMING"
-    console.log "MEAN m to f", incomingMeanMTF
-    console.log "m to m", incomingMeanMTM
-    console.log "MEDIAN m to f", incomingMedianMTF
-    console.log "m to m", incomingMedianMTM
-    console.log "MEAN f to f", incomingMeanFTF
-    console.log "f to m", incomingMeanFTM
-    console.log "MEDIAN f to f", incomingMedianFTF
-    console.log "f to m", incomingMedianFTM
+    # console.log "INCOMING"
+    # console.log "MEAN m to f", incomingMeanMTF
+    # console.log "m to m", incomingMeanMTM
+    # console.log "MEDIAN m to f", incomingMedianMTF
+    # console.log "m to m", incomingMedianMTM
+    # console.log "MEAN f to f", incomingMeanFTF
+    # console.log "f to m", incomingMeanFTM
+    # console.log "MEDIAN f to f", incomingMedianFTF
+    # console.log "f to m", incomingMedianFTM
 
     followerMax = d3.max(@nodes.data(), (d, i) -> unless i is 0 then d.followersCount)
     @followerScale = d3.scale.log().domain([1, followerMax]).range([1, @rings - 1])
@@ -266,8 +264,8 @@ class circleChart
       .attr(class: 'overlay')
       .text('Female')
       .attr(fill: @colours.pink)
-      .attr(x: @geo.circlePoint(@center.x, @center.y, @width/8, 300).x)
-      .attr(y: @geo.circlePoint(@center.x, @center.y, @width/8, 300).y)
+      .attr(x: @geo.circlePoint(@center.x, @center.y, @width/6, 300).x)
+      .attr(y: @geo.circlePoint(@center.x, @center.y, @width/6, 300).y)
       .attr('text-anchor': 'middle')
       .style('font-size': '18px')
       .attr(opacity: 0)
@@ -276,8 +274,8 @@ class circleChart
       .attr(class: 'overlay')
       .text('Male')
       .attr(fill: @colours.blue)
-      .attr(x: @geo.circlePoint(@center.x, @center.y, @width/8, 135).x)
-      .attr(y: @geo.circlePoint(@center.x, @center.y, @width/8, 135).y)
+      .attr(x: @geo.circlePoint(@center.x, @center.y, @width/6, 135).x)
+      .attr(y: @geo.circlePoint(@center.x, @center.y, @width/6, 135).y)
       .attr('text-anchor': 'middle')
       .style('font-size': '18px')
       .attr(opacity: 0)    
@@ -309,22 +307,22 @@ class circleChart
       .attr(r: @radius)
       .each('end', () =>
         @meOverlayText.transition().delay(400).style(opacity: 1)
-        @meOverlayText.transition().ease("quad").duration(700).delay(1200).attr(y: @center.y - 40)
-        @allButMe.select('circle.inner').transition().duration(600).delay(2600).attr(r: @radius)
-        @followOverlayText.transition().delay(3200).style(opacity: 1)
-        @femaleOverlay.transition().duration(1200).delay(4000).attrTween('d', @arcTween({current: 90}))
-        @maleOverlay.transition().duration(1200).delay(4000).attrTween('d', @arcTween({current: -270}))
-        @femaleArcOverlayText.transition().delay(5400).attr(opacity: 1)
-        @maleArcOverlayText.transition().delay(6000).attr(opacity: 1)
+        @meOverlayText.transition().ease("quad").duration(700).delay(1800).attr(y: @center.y - 40)
+        @allButMe.select('circle.inner').transition().duration(600).delay(3200).attr(r: @radius)
+        @followOverlayText.transition().delay(3800).style(opacity: 1)
+        @femaleOverlay.transition().duration(1200).delay(4600).attrTween('d', @arcTween({current: 90}))
+        @maleOverlay.transition().duration(1200).delay(4600).attrTween('d', @arcTween({current: -270}))
+        @femaleArcOverlayText.transition().delay(6000).attr(opacity: 1)
+        @maleArcOverlayText.transition().delay(6600).attr(opacity: 1)
         @metoa
           .transition()
           .duration(1200)
-          .delay(7000)
+          .delay(7600)
           .attr(d: (d) =>
             "M #{d.source.x}, #{d.source.y}L #{d.target.x}, #{d.target.y}"
           ).each('end', @enableControls)
         @drawFollowerCircles(@nodes, 8000)
-        d3.selectAll('.overlay').transition().delay(12000).duration(2000).attr(opacity: 0).each('end', () -> d3.select(this).style(display: 'none'))
+        d3.selectAll('.overlay').transition().delay(10000).duration(2000).attr(opacity: 0).each('end', () -> d3.select(this).style(display: 'none'))
       )
     
   skipIntro: =>
@@ -562,7 +560,6 @@ class circleChart
 
 
     nodes.datum((d, i) =>
-      # console.log @followerScale d.followersCount
       r = @ringScale Math.floor(@followerScale d.followersCount)
       coord = @geo.p2c(r, i*segment)
       d.targetX = coord.x + @center.x
@@ -621,7 +618,6 @@ chart = null
 selection = "body .viz-container #viz"
 
 d3.json("/data/data4.json", (e, data) ->
-  console.log data
   chart = new circleChart(data)
   chart.setup()
 
