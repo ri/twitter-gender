@@ -1,0 +1,33 @@
+
+<nav class="selections disabled">
+	<a id="reset" class="selected"><img src="images/ifollow.png"><span class="text">Who I follow</span></a>
+	<a id="f_to_f"><img src="images/ftf.png"><span class="text">Women following Women</span></a>
+	<a id="m_to_m"><img src="images/mtm.png"><span class="text">Males following Men</span></a>
+	<a id="combined"><img src="images/ftfmtm.png"><span class="text">Women following Women + Men following Men</span></a>
+	<a id="m_to_f"><img src="images/mtf.png"><span class="text">Men following Women</span></a>
+	<a id="f_to_m"><img src="images/ftm.png"><span class="text">Women following Men</span></a>
+	<a id="f_all"><img src="images/followingf.png"><span class="text">Following Women</span></a>
+	<a id="m_all"><img src="images/followingm.png"><span class="text">Following Men</span></a>
+</nav>
+<a href="http://www.ri.id.au/posts/biases" class="about" target="_blank">What is this about?</a>
+<div class="container">
+	<h1>Gender dynamics in my Twitter network</h1>
+	<a id="skip">Skip</a>
+
+	<div class="ui clearfix disabled">
+		<div class="connection-values female">
+			<h2>Follows to Women</h2> <span class="connections-female">0</span>
+		</div>
+		<div class="connection-values male">
+			<h2>Follows to Men</h2> <span class="connections-male">0</span>
+		</div>
+		<div class="right">
+			<span>Follower Circles <a id="outers-toggle" class="on">ON</a></span>
+		</div>
+	</div>
+	<img class="loading" src="images/loading-bubbles.svg">
+
+	<div class="viz-container">
+		<svg id="viz" width="1000" height="1000"></svg>
+	</div>
+</div>

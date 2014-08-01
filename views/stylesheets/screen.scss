@@ -1,0 +1,220 @@
+@import 'mixins';
+@import 'variables';
+
+h1 {font-size: $type1;}
+h2 {font-size: $type2;}
+h3 {font-size: $type3;}
+h4 {font-size: $type4;}	
+body {
+	font-family: $type;
+	color: lighten(black, 25%);
+	font-weight: 100;
+	background-color: #202020;
+}
+h1 { color: #838383; font-size: $type3 }
+a { color: #898989 }
+.container { width: 1000px; margin: 0 auto; text-align: center; position: relative}
+
+.loading { width: 100px; position: absolute; left: 50%; margin-left: -50px; top: 10px}
+#controls {
+	width: 200px;
+	@extend .clearfix;
+}
+
+#controls a {
+	display: block;
+	cursor: pointer;
+}
+
+#filters {
+	float: left;
+}
+
+#filters a{
+	width: 100px;
+	clear: both;
+	position: relative;
+	.button {
+		display: inline-block;
+		position: relative;
+		float: right;
+		width: 40px;
+		height: 20px;
+		border-radius: 10px;
+		border: 1px solid lighten(black, 90%);
+		box-shadow: inset 1px 1px 2px lighten(black, 40%);
+		background-color: lighten(black, 80%);
+		overflow: hidden;
+
+		.background {
+			display: block;
+			position: absolute;
+			left: 0px;
+			width: 40px;
+			height: 20px;
+			border-radius: 8px;
+			box-shadow: inset 1px 1px 2px lighten(black, 40%);
+			transition: left 0.2s;
+		}
+
+		.dial {
+			display: block;
+			border-radius: 50%;
+			position: absolute;
+			bottom: 0;
+			left: 20px;
+			height: 18px;
+			width: 18px;
+			background-color: darken(white, 2%);
+			border: 1px solid darken(white, 15%);
+			box-shadow: 1px 1px 2px darken(white,40%);
+			transition: left 0.2s;
+		}
+	}
+
+	&#female .button .background{
+		background-color: $female-color;
+	}
+
+	&#male .button .background{
+		background-color: $male-color;
+	}	
+
+	&#brand .button .background{
+		background-color: $brand-color;
+	}
+
+	&.hidden .button {
+		.background{ 
+			left: -40px;
+		}
+		.dial {
+			left: 0;
+		}
+	}
+}
+
+.selections {
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 70px;
+	transition: all 0.2s;
+	a {
+		@extend .clearfix;
+		vertical-align: middle;
+		display: block;
+		background-color: #2c2c2c;
+		font-weight: bold;
+		font-size: $type6 * 0.8;
+		width: 180px;
+		color: #919191;
+		padding: 10px 12px;
+		cursor: pointer;
+		margin-bottom: 10px;
+		transition: background 0.2s;
+
+		&:hover { background-color: lighten(#2c2c2c, 5%) }
+		&.selected { background-color: lighten(#2c2c2c, 10%); color: #dddddd}
+		img {vertical-align: middle; margin-right: 10px; display: inline-block; width: 40px}
+		.text { display: inline-block; max-width: 130px; vertical-align: middle}
+	}
+
+}
+.about {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	font-size: 14px;
+	text-decoration: none;
+}
+.disabled { pointer-events: none; opacity: 0;}
+
+#skip {
+	background-color: lighten(#202020, 20%);
+	padding: 5px;
+	width: 80px;
+	position: absolute;
+	z-index: 1000;
+	left: 50%;
+	margin-left: -45px;
+	top: 60px;
+	opacity: 0;
+	color: #ffffff;
+	cursor: pointer;
+	font-weight: bolder;
+	&:hover {
+		background-color: lighten(#202020, 40%);
+	}
+}
+
+#layout {
+	float: left;
+	margin-left: 10px;
+
+	a.active {
+		border: 1px solid red;
+	}
+}
+
+.viz-container { position: relative}
+circle.inner { cursor: pointer }
+.ui {
+	transition: all 0.2s;
+	padding: 10px 20px;
+	background-color: #252525;
+	min-width: 480px;
+	max-width: 480px;
+	margin: 0 auto;
+	.connection-values {
+		float: left;
+		font-size: $type2;
+		h2 { font-size: $type6 * 0.75; text-transform: uppercase; margin: 0}
+	}
+	.connection-values.female { color: #FE0557; margin-right: 20px}
+	.connection-values.male { color: #0AABBA}
+	.right { 
+		float: right; 
+		text-align: right;
+		color: #939393;
+		span {
+			display: block;
+		}
+		span:first-child {
+			margin-bottom: 10px;
+		}
+	}
+	#outers-toggle, #help-toggle {
+		display: inline-block;
+		cursor: pointer;
+		padding: 4px 2px;
+		margin-left: 4px;
+		font-size: $type6 * 0.75;
+		width: 30px;
+		text-align: center;
+		font-weight: bolder;
+
+		&.on {
+			background-color: #4c4c4c;
+			color: #ffffff;
+			&:hover { background-color: #777777; color: #ffffff}
+		}
+		&.off {
+			background-color: #afafaf;
+			color: #2c2c2c;
+			&:hover { background-color: #696969; color: #2c2c2c}
+		}
+	}
+}
+
+footer { font-size: $type6 * 0.9}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
